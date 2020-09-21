@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>My Website.......</title>
+<title>My Website........</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -13,6 +13,26 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+}
+
+/* Clock/background/Time */
+.ClockBackgroundTime{
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  background: Black;
+  color: white;
+
+}
+
+/* Clock/background/Date */
+.ClockBackgroundDate{
+  font-size: 40px;
+  padding: 20px;
+  text-align: center;
+  background: Black;
+  color: white;
+
 }
 
 /* Header/logo Title */
@@ -89,6 +109,7 @@ body {
 
 /* Footer */
 .footer {
+  font-size: 20px;
   padding: 20px;
   text-align: center;
   background: #ddd;
@@ -109,8 +130,31 @@ body {
   }
 }
 </style>
+
+<script>
+function startTime() {
+  var today = new Date();
+  
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  
+  document.getElementById('ClcTime').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
 </head>
-<body>
+<body  onload="startTime()">
+
+<div class="ClockBackgroundTime" id="ClcTime"></div>
 
 <div class="header">
   <h1>My Website</h1>
@@ -152,7 +196,7 @@ body {
 </div>
 
 <div class="footer">
-  <h2>Footer</h2>
+  <h2>Bavithiran Ramesh / Mail : bavithiranhardy14@gmail.com</h2>
 </div>
 
 </body>
